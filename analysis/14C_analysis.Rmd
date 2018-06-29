@@ -1,0 +1,83 @@
+## Antiquity R script.
+
+R script for radiocarbon analysis.
+
+Author of this repository: Cyler Norman Conrad (cylerc@unm.edu & cylerc@lanl.gov)
+
+This repository contains R scripts to create figures and analyze data.
+
+Written by Cyler Conrad, Department of Anthropology, University of New Mexico & Environmental Stewardship, Los Alamos National Laboratory
+
+Results described in:
+
+Conrad, C. submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
+
+NOTES All data required to perform the analyses can be found in (Conrad 2018). The script was run using R version 3.4.1 on Windows 10 Home.
+
+Reference: Conrad, C. 2018. Radiocarbon Analyses [dataset]. University of New Mexico. XXXX
+
+Details of the computational environment and software dependencies are listed at the end of this document. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load_libraries, message = FALSE, warning = FALSE}
+# see the output of sessionInfo() at the bottom for package version numbers
+library(devtools)
+library(Bchron)
+```
+
+```{r radiocarbon calibration and plotting}
+# upload data
+dates<-read.csv("data/dates.csv", stringsAsFactors = FALSE, check.names = FALSE)
+
+# extract sites
+sc<-dates[1:19,]
+scc<-dates[20:31,]
+bvc<-dates[32:43,]
+nnt<-dates[44:102,]
+nnt_green<-dates[c(103, 105:106),]
+
+# plot Spirit Cave with positions
+sc.plot<-BchronCalibrate(ages=sc$age, 
+                        ageSds=sc$sd, 
+                        positions=sc$positions, 
+                        calCurves=rep("intcal13", length(sc$age)))
+plot(sc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
+axis(2, at=c(100,200,300,400,500),labels=c("1","2","2a","3 or 4", "4"))
+
+# plot Steep Cliff Cave with positions
+scc.plot<-BchronCalibrate(ages=scc$age, 
+                         ageSds=scc$sd, 
+                         positions=scc$positions, 
+                         calCurves=rep("intcal13", length(scc$age)))
+plot(scc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
+axis(2, at=c(200,300,400,500),labels=c("2","3","4","5"))
+
+# plot Banyan Valley Cave with positions
+bvc.plot<-BchronCalibrate(ages=bvc$age, 
+                          ageSds=bvc$sd, 
+                          positions=bvc$positions, 
+                          calCurves=rep("intcal13", length(bvc$age)))
+plot(bvc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
+axis(2, at=c(100,200,300,400,500,600),labels=c("1","2","3","4","5","7"))
+
+# plot Non Nok Tha (Bayard) with positions
+nnt.plot<-BchronCalibrate(ages=nnt$age, 
+                           ageSds=nnt$sd, 
+                           positions=nnt$positions, 
+                           calCurves=rep("intcal13", length(nnt$age)))
+plot(nnt.plot,withPositions=TRUE,  yaxt="n", ylab="Period", main="", xlab="Age BP")
+axis(2, at=c(10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170),
+     labels=c("L3","L2","L1","M8","M6","M5","M4/5","M4","M3",
+              "M2","M1/4","M1","E3","E2/3","E2","E1/2", "E1"))
+
+# plot Non Nok Tha (Green) with positions
+nntg.plot<-BchronCalibrate(ages=nnt_green$age, 
+                          ageSds=nnt_green$sd, 
+                          positions=nnt_green$positions, 
+                          calCurves=rep("intcal13", length(nnt_green$age)))
+plot(nntg.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
+axis(2, at=c(100,200,300),labels=c("4","9","12"))
+```
