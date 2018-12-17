@@ -2,15 +2,15 @@
 
 R script for radiocarbon analysis.
 
-Author of this repository: Cyler Norman Conrad (cylerc@unm.edu & cylerc@lanl.gov)
+Author of this repository: Cyler Norman Conrad (cylerc@lanl.gov) and Ben Marwick (bmarwick@uw.edu)
 
 This repository contains R scripts to create figures and analyze data.
 
-Written by Cyler Conrad, Department of Anthropology, University of New Mexico & Environmental Stewardship, Los Alamos National Laboratory
+Written by Cyler Conrad, Environmental Stewardship, Los Alamos National Laboratory and Ben Marwick, Department of Anthropology, University of Washington
 
 Results described in:
 
-Conrad, C. submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
+Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
 
 NOTES All data required to perform the analyses can be found in (Conrad 2018). The script was run using R version 3.4.1 on Windows 10 Home.
 
@@ -31,15 +31,22 @@ library(Bchron)
 ```{r radiocarbon calibration and plotting}
 # upload data
 dates<-read.csv("data/dates.csv", stringsAsFactors = FALSE, check.names = FALSE)
-
+dates
 # extract sites
+# spirit cave (tham phii maen)
 sc<-dates[1:19,]
+# steep cliff cave (tham phaa can)
 scc<-dates[20:31,]
-bvc<-dates[32:43,]
-nnt<-dates[44:102,]
-nnt_green<-dates[c(103, 105:106),]
+# banyan valley cave (tham boong hoong)
+bvc_rice<-dates[32:34,]
+# banyan valley cave rice spikelets
+bvc<-dates[35:46,]
+# non nok tha (partridge mound)
+nnt<-dates[46:105,]
+# non nok tha test excavation
+nnt_green<-dates[c(106, 108:109),]
 
-# plot Spirit Cave with positions
+# plot spirit cave with positions
 sc.plot<-BchronCalibrate(ages=sc$age, 
                         ageSds=sc$sd, 
                         positions=sc$positions, 
@@ -47,7 +54,7 @@ sc.plot<-BchronCalibrate(ages=sc$age,
 plot(sc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
 axis(2, at=c(100,200,300,400,500),labels=c("1","2","2a","3 or 4", "4"))
 
-# plot Steep Cliff Cave with positions
+# plot steep cliff cave with positions
 scc.plot<-BchronCalibrate(ages=scc$age, 
                          ageSds=scc$sd, 
                          positions=scc$positions, 
@@ -55,13 +62,21 @@ scc.plot<-BchronCalibrate(ages=scc$age,
 plot(scc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
 axis(2, at=c(200,300,400,500),labels=c("2","3","4","5"))
 
-# plot Banyan Valley Cave with positions
+# plot banyan valley cave with positions
 bvc.plot<-BchronCalibrate(ages=bvc$age, 
                           ageSds=bvc$sd, 
                           positions=bvc$positions, 
                           calCurves=rep("intcal13", length(bvc$age)))
 plot(bvc.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
 axis(2, at=c(100,200,300,400,500,600),labels=c("1","2","3","4","5","7"))
+
+# plot banyan valley cave rice 
+bvcr.plot<-BchronCalibrate(ages=bvc_rice$age, 
+                          ageSds=bvc_rice$sd, 
+                          positions=bvc_rice$positions, 
+                          calCurves=rep("intcal13", length(bvc_rice$age)))
+plot(bvcr.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
+axis(2, at=c(100,200),labels=c("1","2"))
 
 # plot Non Nok Tha (Bayard) with positions
 nnt.plot<-BchronCalibrate(ages=nnt$age, 
@@ -80,4 +95,72 @@ nntg.plot<-BchronCalibrate(ages=nnt_green$age,
                           calCurves=rep("intcal13", length(nnt_green$age)))
 plot(nntg.plot,withPositions=TRUE,  yaxt="n", ylab="Layer", main="", xlab="Age BP")
 axis(2, at=c(100,200,300),labels=c("4","9","12"))
+```
+
+```{r radiocarbon offset}
+#quatify offset in radiocarbon ages
+# spirit cave
+# WK-40766 to BM-501
+a<-9106-7907
+# WK-40766 to GaK-1846
+b<-9106-8547
+# WK-40766 to FSU-314
+c<-9106-7902
+# WK-40766 to FSU-317
+d<-9106-7397
+
+# Wk-40768 to FSU-318
+e<-8965-8517
+# Wk-40768 to TF-802
+f<-8965-8265
+
+sc_sum<-c(a,b,c,d,e,f)
+sc_sum
+sc_offset<-mean(sc_sum)
+sc_offset
+
+# steep cliff cave
+# UGAMS-29448 to UGAMS-29452
+aa<-9800-8180
+# UGAMS-29448 to UGAMS-29451
+bb<-9800-7460
+# UGAMS-29448 to UGAMS-29455
+cc<-9800-8300
+
+# UGAMS-29449 to UGAMS-29453
+dd<-10510-8100
+# UGAMS-29449 to UGAMS-29447
+ee<-10510-9140
+# UGAMS-29449 to UGAMS-29456
+ff<-10510-9960
+
+# UGAMS-29450 to UGAMS-29454
+gg<-11160-9020
+
+
+scc_sum<-c(aa,bb,cc,dd,ee,ff,gg)
+scc_sum
+scc_offset<-mean(scc_sum)
+scc_offset
+
+# banyan valley cave
+# UGAMS-29440 to UGAMS-29443
+aaa<-7300-2850
+# UGAMS-29440 to UGAMS-29437
+bbb<-7300-3970
+
+# UGAMS-29441 to UGAMS-29445
+ccc<-7540-5900
+# UGAMS-29441 to UGAMS-29444
+ddd<-7540-6180
+# UGAMS-29441 to UGAMS-29438
+eee<-7540-4060
+
+# UGAMS-29442 to UGAMS-29446
+fff<-10680-9270
+
+bvc_sum<-c(aaa,bbb,ccc,ddd,eee,fff)
+bvc_sum
+bvc_offset<-mean(bvc_sum)
+bvc_offset
 ```
