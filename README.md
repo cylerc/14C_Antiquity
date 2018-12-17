@@ -1,15 +1,15 @@
 # 14C_Antiquity
 R script for radiocarbon analyses.
 
-Author of this repository: Cyler Norman Conrad (cylerc@unm.edu & cylerc@lanl.gov)
+Author of this repository: Cyler Norman Conrad (cylerc@lanl.gov) and Ben Marwick (bmarwick@uw.edu)
 
 This repository contains R scripts to create figures and analyze data.
 
-Written by Cyler Conrad, Department of Anthropology, University of New Mexico & Environmental Stewardship, Los Alamos National Laboratory
+Written by Cyler Conrad, Environmental Stewardship, Los Alamos National Laboratory and Ben Marwick, Department of Anthropology, University of Washington
 
 Results described in:
 
-Conrad, C. submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity. 
+Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
 
 NOTES All data required to perform the analyses can be found in (Conrad 2018). The script was run using R version 3.4.1 on Windows 10 Home.
 
