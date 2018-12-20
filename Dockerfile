@@ -14,6 +14,9 @@ RUN . /etc/environment \
   && sudo apt-get update \
   && sudo apt-get install libudunits2-dev -y \
 
+  # diagnose
+    && R -e "getwd(); list.files()" \
+
   # build this compendium package
   && R -e "devtools::install('/datingfourthaisites', dep=TRUE)" \
 
