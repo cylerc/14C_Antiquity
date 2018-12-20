@@ -8,6 +8,8 @@ jobs:
           name: Get info
           command: docker info
       - run: git clone https://github.com/benmarwick/datingfourthaisites.git
+      - run: pwd
+      - run: ls -alF
       - run:
           name: Build the custom container
           command:  docker build -t benmarwick/datingfourthaisites  ~/datingfourthaisites/Dockerfile
