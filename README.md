@@ -5,20 +5,31 @@
 
 This repository contains the data and code for our paper:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book
+> Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White,
+> J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.
+> submitted. Reanalysis of the Radiocarbon and Thermoluminescence
+> Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and
+> Non Nok Tha in Northern Thailand. *Antiquity*
 > <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 19
-> Dec 2018. Online at <https://doi.org/xxx/xxx>
+> Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White,
+> J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.,
+> (YYYY). *Reanalysis of the Radiocarbon and Thermoluminescence
+> Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and
+> Non Nok Tha in Northern Thailand* Accessed 20 Dec 2018. Online at
+> <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2018). *Compendium of R code and data for ‘Title of paper’*.
-> Accessed 19 Dec 2018. Online at <https://doi.org/xxx/xxx>
+> Conrad, C. and B. Marwick (2018). *Compendium of R code and data for
+> ‘Reanalysis of the Radiocarbon and Thermoluminescence Chronologies
+> for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha
+> in Northern Thailand’*. Accessed 20 Dec 2018. Online at
+> <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
@@ -26,7 +37,13 @@ You can download the compendium as a zip from from this URL:
 </archive/master.zip>
 
 Or you can install this compendium as an R package, datingfourthaisites,
-from GitHub with: \#\#\# Licenses
+from GitHub with:
+
+``` r
+source("https://install-github.me/cylerc/datingfourthaisites")
+```
+
+### Licenses
 
 **Text and figures :**
 [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
