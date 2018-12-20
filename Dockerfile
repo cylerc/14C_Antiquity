@@ -4,7 +4,7 @@ FROM rocker/verse:3.5.1
 # required
 MAINTAINER Ben Marwick <benmarwick@gmail.com>
 
-COPY . /14C_Antiquity
+COPY . /datingfourthaisites
 
 # go into the repo directory
 RUN . /etc/environment \
