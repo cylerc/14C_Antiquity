@@ -15,5 +15,7 @@ License: MIT + file LICENSE
 ByteCompile: true
 Encoding: UTF-8
 LazyData: true
-Suggests: bookdown, here, Bchron
+Imports: bookdown, here, Bchron
+Remotes: rstudio/gt
 RoxygenNote: 6.1.1
+
