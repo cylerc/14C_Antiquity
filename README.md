@@ -3,6 +3,8 @@
 
 # datingfourthaisites
 
+<!-- [![Circle-CI Build Status](https://circleci.com/gh/benmarwick/datingfourthaisites.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/benmarwick/datingfourthaisites) -->
+
 This repository contains the data and code for our paper:
 
 > Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White,
