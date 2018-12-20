@@ -12,9 +12,10 @@ jobs:
       - run: pwd
       - run: ls -alF
       - run: cd datingfourthaisites
+      - run: pwd
       - run: ls -alF
       - run:
           name: Build the custom container
-          command:  docker build -t benmarwick/datingfourthaisites  Dockerfile
+          command:  docker build -t benmarwick/datingfourthaisites  datingfourthaisites/Dockerfile
           no_output_timeout: 4h
 
