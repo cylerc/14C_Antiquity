@@ -1,3 +1,4 @@
+<!-- rmarkdown v1 -->
 ---
 output: github_document
 ---
@@ -14,7 +15,13 @@ knitr::opts_chunk$set(
 
 # datingfourthaisites
 
+ ```{r echo=FALSE, prompt=FALSE, results='asis', comment=""}
+cat('
 [![CircleCI](https://circleci.com/gh/benmarwick/datingfourthaisites/tree/master.svg?style=svg)](https://circleci.com/gh/benmarwick/datingfourthaisites/tree/master) [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/benmarwick/datingfourthaisites/master?urlpath=rstudio)
+')
+```
+
+
 
 This repository contains the data and code for our paper:
 
