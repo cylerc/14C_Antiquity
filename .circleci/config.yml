@@ -9,6 +9,6 @@ jobs:
           command: docker info
       - run:
           name: Build the custom container
-          command: docker build -t $DOCKER_USER/datingfourthaisites  .
+          command:  docker build -t benmarwick/datingfourthaisites  https://raw.githubusercontent.com/benmarwick/datingfourthaisites/master/Dockerfile
           no_output_timeout: 4h
 
