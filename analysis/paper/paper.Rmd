@@ -1,0 +1,466 @@
+---
+title: "Compendium of R code and data for 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'"
+author:
+  - Cyler Norman Conrad $^1$
+  - Ben Marwick $^2$
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    bookdown::html_document2:
+      number_sections: no
+      fig_caption: yes
+      reference_docx: "../templates/template.docx" # Insert path for the DOCX file
+bibliography: references.bib
+csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
+---
+
+$^1$Environmental Stewardship, Los Alamos National Laboratory, <cylerc@lanl.gov>
+
+$^2$Department of Anthropology, University of Washington, Seattle, WA, USA, <bmarwick@uw.edu>
+
+<!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
+
+```{r, setup, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = TRUE,
+  comment = "#>",
+  fig.path = "../figures/"
+)
+
+```
+
+## Import and prepare the data
+
+```{r}
+library(Bchron)
+```
+
+We import the data from the included CSV file
+
+```{r upload-data}
+dates <- read.csv(here::here("analysis", 
+                             "data", 
+                             "raw_data", 
+                             "dates.csv"), 
+                  stringsAsFactors = FALSE, 
+                  check.names = FALSE)
+```
+
+We create separate data frames for each site
+
+```{r extract-sites}
+# extract sites
+
+# spirit cave (tham phii maen)
+sc <- dates[dates$Site == "Spirit Cave", ]
+
+# steep cliff cave (tham phaa can)
+scc <- dates[dates$Site == "Steep Cliff Cave", ]
+
+# banyan valley cave (tham boong hoong) rice spikelets
+bvc_rice <- dates[dates$Site == "Banyan Valley Cave" & 
+                    dates$Material == "Rice spikelet", ]
+
+# banyan valley cave (all but rice spikelets)
+bvc <- dates[dates$Site == "Banyan Valley Cave" & 
+                    dates$Material != "Rice spikelet", ]
+
+# non nok tha (partridge mound, excluding UGAMS ages)
+nnt <- dates[dates$Site == "Partridge Mound" & 
+                    !grepl('UGAMS', dates$`Lab Code`) , ]
+
+# non nok tha test excavation (only UGAMS ages)
+# BM: why exclude row 107?
+nnt_green <- dates[dates$Site == "Partridge Mound" & 
+                    grepl('UGAMS', dates$`Lab Code`) , ]
+```
+
+We display the contents of each data frame, which shows the ages we have for each site
+
+```{r show-tables}
+library(gt)
+gt(tab_header(sc, title = md("Spirit Cave")))
+gt(tab_header(scc, title = md("Steep Cliff Cave")))
+gt(tab_header(bvc_rice, title = md("Banyan Valley Cave - Rice spikelet")))
+gt(tab_header(bvc, title = md("Banyan Valley Cave")))
+gt(tab_header(nnt, title = md("Partridge Mound (NNT) - excluding UGAMS ages")))
+gt(tab_header(nnt_green, title = md("Partridge Mound (NNT) - only UGAMS ages")))
+```
+
+## Calibrate and visualise the radiocarbon ages
+
+```{r spirit-cave, fig.cap="Calibrated radiocarbon ages per layer at Spirit Cave"}
+# plot spirit cave with positions
+sc.plot <- 
+  BchronCalibrate(
+    ages = sc$age,
+    ageSds = sc$sd,
+    positions = sc$positions,
+    calCurves = rep("intcal13", length(sc$age)))
+
+character_expansion_factor <- 1.35
+date_height <- 60
+x_lab <- "Calibrated age in years BP"
+
+plot(sc.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(sc.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height
+)
+
+sc_x_axis <- seq(2000, 16000, by = 2000)
+
+axis(
+  1,
+  at = sc_x_axis,
+  labels=formatC(sc_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+sc_y_axis <-  c("1", "2", "2a", "3 or 4", "4")
+
+axis(
+  2,
+  at = unique(sc$positions),
+  labels = sc_y_axis, 
+  cex.axis=character_expansion_factor,
+  las = 1
+)
+```
+
+```{r steep-cliff-cave, fig.cap="Calibrated radiocarbon ages per layer at Steep Cliff Cave"}
+# plot steep cliff cave with positions
+scc.plot <-
+  BchronCalibrate(
+    ages = scc$age,
+    ageSds = scc$sd,
+    positions = scc$positions,
+    calCurves = rep("intcal13", length(scc$age))
+  )
+
+plot(scc.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(scc.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height
+)
+
+scc_x_axis <- seq(0, 16000, by = 2000)
+
+axis(
+  1,
+  at = scc_x_axis,
+  labels=formatC(scc_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+scc_y_axis <-  c("2", "3", "4", "5")
+
+axis(
+  2,
+  at = unique(scc$positions),
+  labels = scc_y_axis, 
+  cex.axis = character_expansion_factor * 0.9,
+  las = 1
+)
+
+```
+
+
+```{r banyan-valley-cave, fig.cap="Calibrated radiocarbon ages per layer at Banyan Valley Cave"}
+
+# plot banyan valley cave with positions
+bvc.plot <- BchronCalibrate(
+  ages = bvc$age,
+  ageSds = bvc$sd,
+  positions = bvc$positions,
+  calCurves = rep("intcal13", length(bvc$age))
+)
+
+plot(bvc.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(bvc.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height * 1.5
+)
+
+bvc_x_axis <- seq(0, 16000, by = 2000)
+
+axis(
+  1,
+  at = bvc_x_axis,
+  labels=formatC(bvc_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+bvc_y_axis <-  c("1","2","3","4","5","7")
+
+axis(
+  2,
+  at = unique(bvc$positions),
+  labels = bvc_y_axis, 
+  cex.axis = character_expansion_factor * 0.9,
+  las = 1
+)
+```
+
+
+```{r banyan-valley-cave-rice, fig.cap="Calibrated radiocarbon ages of rice spikelets per layer at Banyan Valley Cave"}
+
+# plot banyan valley cave rice
+
+bvcr.plot <- BchronCalibrate(
+  ages = bvc_rice$age,
+  ageSds = bvc_rice$sd,
+  positions = bvc_rice$positions,
+  calCurves = rep("intcal13", length(bvc_rice$age))
+)
+
+plot(bvcr.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(bvcr.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height
+)
+
+bvcr_x_axis <- seq(0, 6000, by = 200)
+
+axis(
+  1,
+  at = bvcr_x_axis,
+  labels=formatC(bvcr_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+bvcr_y_axis <-  c("1","2")
+
+axis(
+  2,
+  at = unique(bvc_rice$positions),
+  labels = bvcr_y_axis, 
+  cex.axis = character_expansion_factor * 0.9,
+  las = 1
+)
+
+```
+
+
+```{r non-nok-tha, fig.cap="Calibrated radiocarbon ages per layer at Non Nok Tha"}
+# plot Non Nok Tha (Bayard) with positions
+
+nnt.plot <- BchronCalibrate(
+  ages = nnt$age,
+  ageSds = nnt$sd,
+  positions = nnt$positions,
+  calCurves = rep("intcal13", length(nnt$age))
+)
+
+plot(nnt.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(nnt.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height * 0.175
+)
+
+nnt_x_axis <- seq(0, 16000, by = 2000)
+
+axis(
+  1,
+  at = nnt_x_axis,
+  labels=formatC(nnt_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+nnt_y_axis <-  c("L3","L2","L1","M8","M6","M5","M4/5","M4","M3",
+              "M2","M1/4","M1","E3","E2/3","E2","E1/2", "E1")
+
+axis(
+  2,
+  at = unique(nnt$positions),
+  labels = nnt_y_axis, 
+  cex.axis = character_expansion_factor * 0.45,
+  las = 1
+)
+```
+
+```{r non-nok-tha-green, fig.cap="Calibrated radiocarbon ages per layer at Non Nok Tha - Unit 6"}
+# plot Non Nok Tha (Green) with positions
+nntg.plot <- BchronCalibrate(
+  ages = nnt_green$age,
+  ageSds = nnt_green$sd,
+  positions = nnt_green$positions,
+  calCurves = rep("intcal13", length(nnt_green$age))
+)
+
+plot(nntg.plot,
+  withPositions = TRUE,
+  fillCols = rep('grey30', length(nntg.plot)),
+  yaxt = "n", 
+  xaxt = "n",
+  ylab = "Layer", 
+  main = "", 
+  xlab = x_lab, 
+  cex.lab = character_expansion_factor, 
+  cex.axis = character_expansion_factor, 
+  cex.main = character_expansion_factor, 
+  cex.sub = character_expansion_factor,
+  dateHeight = date_height 
+)
+
+nntg_x_axis <- seq(1000, 4000, by = 200)
+
+axis(
+  1,
+  at = nntg_x_axis,
+  labels=formatC(nntg_x_axis, format="d", big.mark=','),
+  cex.axis=character_expansion_factor
+)
+
+nntg_y_axis <-  c("4","9","12")
+
+axis(
+  2,
+  at = unique(nnt_green$positions),
+  labels = nntg_y_axis, 
+  cex.axis = character_expansion_factor,
+  las = 1
+)
+```
+
+
+## Radiocarbon offset calculations
+
+We compute the radiocabon age offsets
+
+```{r radiocarbon-offset-spirit-cave}
+# quantify offset in radiocarbon ages
+
+# spirit cave
+
+# WK-40766 to BM-501
+a <- 9106 - 7907
+# WK-40766 to GaK-1846
+b <- 9106 - 8547
+# WK-40766 to FSU-314
+c <- 9106 - 7902
+# WK-40766 to FSU-317
+d <- 9106 - 7397
+
+# Wk-40768 to FSU-318
+e <- 8965 - 8517
+# Wk-40768 to TF-802
+f <- 8965 - 8265
+
+sc_sum <- c(a, b, c, d, e, f)
+sc_offset <- round(mean(sc_sum), 2)
+```
+
+The offset for Spirit Cave is `r sc_offset` years
+
+```{r radiocarbon-offset-steep-cliff-cave}
+# steep cliff cave
+
+# UGAMS-29448 to UGAMS-29452
+aa <- 9800 - 8180
+# UGAMS-29448 to UGAMS-29451
+bb <- 9800 - 7460
+# UGAMS-29448 to UGAMS-29455
+cc <- 9800 - 8300
+
+# UGAMS-29449 to UGAMS-29453
+dd <- 10510 - 8100
+# UGAMS-29449 to UGAMS-29447
+ee <- 10510 - 9140
+# UGAMS-29449 to UGAMS-29456
+ff <- 10510 - 9960
+
+# UGAMS-29450 to UGAMS-29454
+gg <- 11160 - 9020
+
+scc_sum <- c(aa, bb, cc, dd, ee, ff, gg)
+scc_offset <- round(mean(scc_sum), 2)
+```
+
+The offset for Steep Cliff Cave is `r scc_offset` years
+
+```{r radiocarbon-offset-banyan-valley-cave}
+# banyan valley cave
+
+# UGAMS-29440 to UGAMS-29443
+aaa <- 7300 - 2850
+# UGAMS-29440 to UGAMS-29437
+bbb <- 7300 - 3970
+
+# UGAMS-29441 to UGAMS-29445
+ccc <- 7540 - 5900
+# UGAMS-29441 to UGAMS-29444
+ddd <- 7540 - 6180
+# UGAMS-29441 to UGAMS-29438
+eee <- 7540 - 4060
+
+# UGAMS-29442 to UGAMS-29446
+fff <- 10680 - 9270
+
+bvc_sum <- c(aaa, bbb, ccc, ddd, eee, fff)
+bvc_offset <- round(mean(bvc_sum), 2)
+```
+
+The offset for Banyan Valley Cave is `r bvc_offset` years
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+git2r::repository(here::here())
+```

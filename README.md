@@ -1,30 +1,44 @@
-# 14C_Antiquity
-R script for radiocarbon analyses.
 
-Author of this repository: Cyler Norman Conrad (cylerc@lanl.gov) and Ben Marwick (bmarwick@uw.edu)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-This repository contains R scripts to create figures and analyze data.
+# datingfourthaisites
 
-Written by Cyler Conrad, Environmental Stewardship, Los Alamos National Laboratory and Ben Marwick, Department of Anthropology, University of Washington
+This repository contains the data and code for our paper:
 
-Results described in:
+> Authors, (YYYY). *Title of paper*. Name of journal/book
+> <https://doi.org/xxx/xxx>
 
-Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
+Our pre-print is online here:
 
-NOTES All data required to perform the analyses can be found in (Conrad 2018). The script was run using R version 3.4.1 on Windows 10 Home.
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 19
+> Dec 2018. Online at <https://doi.org/xxx/xxx>
 
-Reference: Conrad, C. 2018. Radiocarbon Analyses [dataset]. University of New Mexico. XXXX
+### How to cite
 
-MIT License
+Please cite this compendium as:
 
-Copyright (c) 2018 Cyler Conrad
+> Authors, (2018). *Compendium of R code and data for ‘Title of paper’*.
+> Accessed 19 Dec 2018. Online at <https://doi.org/xxx/xxx>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+### How to download or install
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+You can download the compendium as a zip from from this URL:
+</archive/master.zip>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Or you can install this compendium as an R package, datingfourthaisites,
+from GitHub with: \#\#\# Licenses
 
-Contact:
+**Text and figures :**
+[CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-Cyler Norman Conrad, Ph.D., RPA, Archaeologist, Los Alamos National Laboratory, t. (+1) 505.667.0295 e. cylerc@lanl.gov
+**Code :** See the [DESCRIPTION](DESCRIPTION) file
+
+**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+attribution requested in reuse
+
+### Contributions
+
+We welcome contributions from everyone. Before you get started, please
+see our [contributor guidelines](CONTRIBUTING.md). Please note that this
+project is released with a [Contributor Code of Conduct](CONDUCT.md). By
+participating in this project you agree to abide by its terms.
