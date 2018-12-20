@@ -7,11 +7,12 @@ jobs:
       - run:
           name: Get info
           command: docker info
+          # need to https://circleci.com/docs/2.0/add-ssh-key/ for private repos
       - run: git clone https://github.com/benmarwick/datingfourthaisites.git
       - run: pwd
       - run: ls -alF
       - run:
           name: Build the custom container
-          command:  docker build -t benmarwick/datingfourthaisites  ~/Dockerfile
+          command:  docker build -t benmarwick/datingfourthaisites  /Dockerfile
           no_output_timeout: 4h
 
