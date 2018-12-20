@@ -18,4 +18,5 @@ LazyData: true
 Imports: bookdown, here, Bchron
 Remotes: rstudio/gt
 RoxygenNote: 6.1.1
+Date: 2018-12-20
 

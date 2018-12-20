@@ -5,6 +5,8 @@
 
 <!-- [![Circle-CI Build Status](https://circleci.com/gh/benmarwick/datingfourthaisites.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/benmarwick/datingfourthaisites) -->
 
+[![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/benmarwick/datingfourthaisites/master?urlpath=rstudio)
+
 This repository contains the data and code for our paper:
 
 > Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White,
