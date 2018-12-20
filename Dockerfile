@@ -9,13 +9,11 @@ COPY . /datingfourthaisites
 # go into the repo directory
 RUN . /etc/environment \
 
-  # Install linux depedendencies here
+  # Install linux and other depedendencies here
   # e.g. need this for ggforce::geom_sina
   && sudo apt-get update \
   && sudo apt-get install libudunits2-dev -y \
-
-  # diagnose
-    && R -e "getwd(); list.files('datingfourthaisites')" \
+  && R -e "devtools::install_github('rstudio/gt', dep=TRUE)" \
 
   # build this compendium package
   && R -e "devtools::install('/datingfourthaisites', dep=TRUE)" \
