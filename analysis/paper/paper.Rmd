@@ -91,6 +91,16 @@ gt(tab_header(nnt_green, title = md("Partridge Mound (NNT) - only UGAMS ages")))
 
 ## Calibrate and visualise the radiocarbon ages
 
+```{r}
+# parameters for all plots
+character_expansion_factor <- 1.35
+date_height <- 60
+x_lab <- "Calibrated age in years BP"
+legend_pch <- 16
+legend_cex <- 1.1
+```
+
+
 ```{r spirit-cave, fig.cap="Calibrated radiocarbon ages per layer at Spirit Cave"}
 # plot spirit cave with positions
 sc.plot <- 
@@ -100,13 +110,16 @@ sc.plot <-
     positions = sc$positions,
     calCurves = rep("intcal13", length(sc$age)))
 
-character_expansion_factor <- 1.35
-date_height <- 60
-x_lab <- "Calibrated age in years BP"
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(sc$Material))
+the_colours <- RColorBrewer::brewer.pal(n_colours, "Set1")
+
+sc$Material_colour <- as.character(
+  factor(sc$Material, labels = the_colours))
 
 plot(sc.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(sc.plot)),
+  fillCols = sc$Material_colour,
   yaxt = "n", 
   xaxt = "n",
   ylab = "Layer", 
@@ -137,6 +150,12 @@ axis(
   cex.axis=character_expansion_factor,
   las = 1
 )
+
+legend("topleft", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(sc$Material_colour) ,
+       legend = unique(sc$Material))
 ```
 
 ```{r steep-cliff-cave, fig.cap="Calibrated radiocarbon ages per layer at Steep Cliff Cave"}
@@ -149,9 +168,16 @@ scc.plot <-
     calCurves = rep("intcal13", length(scc$age))
   )
 
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(scc$Material))
+the_colours <- RColorBrewer::brewer.pal(n_colours, "Set1")
+
+scc$Material_colour <- as.character(
+  factor(scc$Material, labels = the_colours))
+
 plot(scc.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(scc.plot)),
+  fillCols = scc$Material_colour, 
   yaxt = "n", 
   xaxt = "n",
   ylab = "Layer", 
@@ -183,6 +209,12 @@ axis(
   las = 1
 )
 
+legend("topleft", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(scc$Material_colour) ,
+       legend = unique(scc$Material))
+
 ```
 
 
@@ -196,9 +228,16 @@ bvc.plot <- BchronCalibrate(
   calCurves = rep("intcal13", length(bvc$age))
 )
 
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(bvc$Material))
+the_colours <- RColorBrewer::brewer.pal(n_colours, "Set1")
+
+bvc$Material_colour <- as.character(
+  factor(bvc$Material, labels = the_colours))
+
 plot(bvc.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(bvc.plot)),
+  fillCols = bvc$Material_colour,
   yaxt = "n", 
   xaxt = "n",
   ylab = "Layer", 
@@ -229,6 +268,12 @@ axis(
   cex.axis = character_expansion_factor * 0.9,
   las = 1
 )
+
+legend("topleft", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(bvc$Material_colour) ,
+       legend = unique(bvc$Material))
 ```
 
 
@@ -243,9 +288,16 @@ bvcr.plot <- BchronCalibrate(
   calCurves = rep("intcal13", length(bvc_rice$age))
 )
 
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(bvc_rice$Material))
+the_colours <- RColorBrewer::brewer.pal(3, "Set1")[1]
+
+bvc_rice$Material_colour <- as.character(
+  factor(bvc_rice$Material, labels = the_colours))
+
 plot(bvcr.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(bvcr.plot)),
+  fillCols = bvc_rice$Material_colour,
   yaxt = "n", 
   xaxt = "n",
   ylab = "Layer", 
@@ -277,6 +329,12 @@ axis(
   las = 1
 )
 
+legend("topright", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(bvc_rice$Material_colour) ,
+       legend = unique(bvc_rice$Material))
+
 ```
 
 
@@ -290,9 +348,16 @@ nnt.plot <- BchronCalibrate(
   calCurves = rep("intcal13", length(nnt$age))
 )
 
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(nnt$Material))
+the_colours <- RColorBrewer::brewer.pal(n_colours, "Set1")
+
+nnt$Material_colour <- as.character(
+  factor(nnt$Material, labels = the_colours))
+
 plot(nnt.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(nnt.plot)),
+  fillCols = nnt$Material_colour,
   yaxt = "n", 
   xaxt = "n",
   ylab = "Layer", 
@@ -324,6 +389,13 @@ axis(
   cex.axis = character_expansion_factor * 0.45,
   las = 1
 )
+
+legend("topleft", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(nnt$Material_colour) ,
+       legend = unique(nnt$Material))
+
 ```
 
 ```{r non-nok-tha-green, fig.cap="Calibrated radiocarbon ages per layer at Non Nok Tha - Unit 6"}
@@ -335,11 +407,18 @@ nntg.plot <- BchronCalibrate(
   calCurves = rep("intcal13", length(nnt_green$age))
 )
 
+# make the materials coloured so we can use it to colour the plots
+n_colours <- length(unique(nnt_green$Material))
+the_colours <- RColorBrewer::brewer.pal(3, "Set1")[1:n_colours]
+
+nnt_green$Material_colour <- as.character(
+  factor(nnt_green$Material, labels = the_colours))
+
 plot(nntg.plot,
   withPositions = TRUE,
-  fillCols = rep('grey30', length(nntg.plot)),
-  yaxt = "n", 
+  fillCols = nnt_green$Material_colour,
   xaxt = "n",
+  yaxt = "n",
   ylab = "Layer", 
   main = "", 
   xlab = x_lab, 
@@ -368,6 +447,12 @@ axis(
   cex.axis = character_expansion_factor,
   las = 1
 )
+
+legend("topleft", 
+       pch = legend_pch, 
+       cex = legend_cex,
+       col= unique(nnt_green$Material_colour) ,
+       legend = unique(nnt_green$Material))
 ```
 
 
