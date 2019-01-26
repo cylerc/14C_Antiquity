@@ -9,7 +9,7 @@ Written by Cyler Conrad, Environmental Stewardship, Los Alamos National Laborato
 
 Results described in:
 
-Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
+Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
 
 NOTES All data required to perform the analyses can be found in (Conrad 2018). The script was run using R version 3.4.1 on Windows 10 Home.
 
