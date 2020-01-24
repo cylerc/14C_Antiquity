@@ -24,17 +24,17 @@ cat('
 
 This repository contains the data and code for our paper:
 
-> Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. _Antiquity_ <https://doi.org/xxx/xxx>
+> Conrad, C., Shoocondej, R., Marwick, B., White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J.K., Castillo, C. and Fuller, D. submitted. Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand.  _Antiquity_ <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
-> Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D., (YYYY). _Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand_ Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+> Conrad, C., Shoocondej, R., Marwick, B., White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J.K., Castillo, C. and Fuller, D., (YYYY). _Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand_ Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Conrad, C. and B. Marwick (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+> Conrad, C., B. Marwick and Feathers, J.K. (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
