@@ -1,5 +1,5 @@
 Package: datingfourthaisites
-Title: Compendium of R code and data for 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'
+Title: Compendium of R code and data for 'Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand'
 Version: 0.0.0.9000
 Authors@R:
     c(person(given = "Cyler",
