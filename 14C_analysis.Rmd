@@ -1,3 +1,13 @@
+---
+title: "Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'"
+author:
+  - Cyler Norman Conrad (cylerc@lanl.gov) 
+  - Ben Marwick (bmarwick@uw.edu)
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    bookdown::html_document2
+---
+
 ## Antiquity R script.
 
 R script for radiocarbon analysis.
@@ -26,25 +36,26 @@ knitr::opts_chunk$set(echo = TRUE)
 # see the output of sessionInfo() at the bottom for package version numbers
 library(devtools)
 library(Bchron)
+library(here)
 ```
 
 ```{r radiocarbon calibration and plotting}
 # upload data
-dates<-read.csv("data/dates.csv", stringsAsFactors = FALSE, check.names = FALSE)
-dates
+dates <- read.csv(here("data/dates.csv"), stringsAsFactors = FALSE, check.names = FALSE)
+
 # extract sites
 # spirit cave (tham phii maen)
-sc<-dates[1:19,]
+sc <- dates[1:19, ]
 # steep cliff cave (tham phaa can)
-scc<-dates[20:31,]
+scc <- dates[20:31, ]
 # banyan valley cave (tham boong hoong)
-bvc_rice<-dates[32:34,]
+bvc_rice <- dates[32:34, ]
 # banyan valley cave rice spikelets
-bvc<-dates[35:46,]
+bvc <- dates[35:46, ]
 # non nok tha (partridge mound)
-nnt<-dates[46:105,]
+nnt <- dates[46:105, ]
 # non nok tha test excavation
-nnt_green<-dates[c(106, 108:109),]
+nnt_green <- dates[c(106, 108:109), ]
 
 # plot spirit cave with positions
 sc.plot<-BchronCalibrate(ages=sc$age, 
