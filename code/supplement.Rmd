@@ -65,19 +65,6 @@ knitr::include_graphics(here::here("figures/005-c14-ages-banyan-valley-cave.png"
 ```
 
 
-```{r c14-non-nok-tha-mound, fig.cap="Calibrated radiocarbon age distributions from Non Nok Tha (mound)",  cache.extra=tools::md5sum(here::here("code/006-c14-dist-non-nok-tha-mound.R"))}
-quietly(source(here::here("code/006-c14-dist-non-nok-tha-mound.R")))
-knitr::include_graphics(here::here("figures/006-c14-ages-non-nok-tha-mound.png"))
-```
-
-
-```{r c14-non-nok-tha-test, fig.cap="Calibrated radiocarbon age distributions from Non Nok Tha (mound)", cache.extra=tools::md5sum(here::here("code/007-c14-dist-non-nok-tha-test.R"))}
-quietly(source(here::here("code/007-c14-dist-non-nok-tha-test.R")))
-knitr::include_graphics(here::here("figures/007-c14-ages-non-nok-tha-test.png"))
-```
-
-
-
 ```{r radiocarbon offset}
 #quatify offset in radiocarbon ages
 # spirit cave
