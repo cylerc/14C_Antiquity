@@ -15,7 +15,7 @@ jobs:
           renv::restore()
       - name: Render mansucript
         run: |-
-          Rscript -e "lapply(fs::dir_ls('supplement', glob='*.Rmd', recurse=TRUE), rmarkdown::render, envir = globalenv())"
+          Rscript -e "code', glob='*.Rmd', recurse=TRUE), rmarkdown::render, envir = globalenv())"
 
 ## remarkably(?), we can use the standard checkout action, actions/checkout@v1
 ## even inside this Docker container.
