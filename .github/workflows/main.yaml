@@ -6,6 +6,8 @@ jobs:
     container: rocker/verse
     steps:
       - uses: actions/checkout@v1
+      - name: Install prereqs
+        run: apt install libgdal-dev
       - name: Restore packages
         shell: Rscript {0}
         run: |
