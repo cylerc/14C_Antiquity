@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install prereqs
-        run: apt install libgdal-dev
+        run: sudo apt-get update && sudo apt-get install libgdal-dev
       - name: Restore packages
         shell: Rscript {0}
         run: |
