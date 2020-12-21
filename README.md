@@ -1,4 +1,4 @@
-# Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'
+# Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand'
 
 <!-- badges: start -->
 
@@ -10,13 +10,13 @@ Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cylerc/14C_An
 
 This repository contains the data and code for our paper:
 
-> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Submitted to *Antiquity*.
+> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand. Submitted to *Antiquity*.
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Conrad, C., Marwick, B. 2020. Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand' <https://doi.org/xxx/xxx> <!-- get DOI from osf.io -->
+> Conrad, C., Marwick, B. 2020. Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand' <https://doi.org/xxx/xxx> <!-- get DOI from osf.io -->
 
 ## Contents
 
