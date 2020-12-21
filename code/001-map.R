@@ -157,7 +157,7 @@ ggplot() +
 #-------------------------------
 # combine both plots
 
-library(cowplot)
+library(cowplot) 
 
 ggdraw() +
   draw_plot(regional_area_map) +
