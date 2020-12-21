@@ -1,0 +1,38 @@
+Package: compendium
+Project: 
+Version: 0.1.0
+License: CC0
+Title: Compendium Package
+Description: A generic description file for dependency management of this research
+  compendium.  See <https://doi.org/10.1080/00031305.2017.1375986> for a description
+  of the compendium approach to organizing a reproducible research project. 
+Authors@R: c(person("Cyler", "Conrad", 
+                    email = "cylerc@lanl.gov", 
+                    role = c("aut", "cre", "cph"),
+                    comment=c(ORCID = "0000-0003-4659-2884")),
+            person("Ben", "Marwick", 
+                    email = "bmarwick@uw.edu", 
+                    role = c("aut", "cph"),
+                    comment=c(ORCID = "0000-0001-7879-4531")))
+Suggests: rmarkdown        
+Encoding: UTF-8
+Imports:
+    Bchron ,
+    bookdown,
+    c14bazAAR,
+    cowplot ,
+    devtools ,
+    ggmap ,
+    ggrepel ,
+    ggridges ,
+    ggspatial ,
+    ggthemes ,
+    here,
+    knitr,
+    legendMa,
+    raster (,
+    readxl ,
+    remotes ,
+    tidyr ,
+    tidyverse ,
+    tools 

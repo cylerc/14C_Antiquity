@@ -46,7 +46,7 @@ my_dates_tbl_c14list_calibrated_cal_dens_nnt_green %>%
   scale_x_reverse() +
   xlab("Calibrated date (cal BP)") +
   ylab("") +
-  theme_bw(base_size = 12) +
+  theme_bw(base_size = 6) +
   guides(fill = FALSE)  +
   # layer 1 rect
   geom_rect(data = data.frame(x = 1),
@@ -72,7 +72,7 @@ my_dates_tbl_c14list_calibrated_cal_dens_nnt_green %>%
 
 ggsave(here::here("figures/007-c14-ages-non-nok-tha-test.png"),
        width = 13.5,
-       height = 13,
+       height = 4,
        units = "cm")
 
 

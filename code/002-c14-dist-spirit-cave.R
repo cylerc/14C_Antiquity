@@ -41,12 +41,16 @@ ggridges::geom_ridgeline(
   scale_x_reverse() +
   xlab("Calibrated date (cal BP)") +
   ylab("") +
-  theme_bw(base_size = 10) +
+  theme_bw(base_size = 6) +
   theme(
     strip.text.x = element_blank(),
     strip.background = element_rect(colour = "white", 
                                     fill = "white"),
-    legend.position = c(.85, .2)
+    legend.position = c(.95, .1),
+          legend.title = element_text(size = 4), 
+          legend.text  = element_text(size = 4),
+          legend.key.width = unit(0.25, 'cm'),
+          legend.key.size = unit(0.25, "cm")
   ) +
   # draw layer rectangles 
   # layer 1 rect
@@ -139,7 +143,7 @@ ggridges::geom_ridgeline(
 ggsave(
   here::here("figures/002-c14-ages-spirit-cave.png"),
   width = 13.5,
-  height = 10,
+  height = 7,
   units = "cm"
 )
 

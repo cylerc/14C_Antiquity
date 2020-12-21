@@ -44,7 +44,7 @@ my_dates_tbl_c14list_calibrated_cal_dens_bvc_rice %>%
   scale_x_reverse() +
   xlab("Calibrated date (cal BP)") +
   ylab("") +
-  theme_bw(base_size = 10) +
+  theme_bw(base_size = 6) +
   theme(strip.text.x = element_blank()
   ) +
   # layer 1 rect
@@ -65,7 +65,7 @@ my_dates_tbl_c14list_calibrated_cal_dens_bvc_rice %>%
 
 ggsave(here::here("figures/004-c14-ages-banyan-valley-rice.png"),
        width = 13.5,
-       height = 10,
+       height = 4,
        units = "cm")
 
 

@@ -91,6 +91,7 @@ ggmap(map)  +
 # create inset hillshade for Mae Hong Son
 # reference: https://stanford.edu/~vbauer/teaching/hillshade.html
 # DEM source ("E47"): http://viewfinderpanoramas.org/Coverage%20map%20viewfinderpanoramas_org3.htm
+# unzip and att "E47" folder to /data before proceeding
 
 sites_coord <- readxl::read_excel(here("data/Sites.xlsx"))
 
@@ -174,20 +175,3 @@ ggsave(here::here("figures/001-map.png"),
 
 
 
-#-------------------------------
-  
-
-points(sites_coord$Latitude, sites_coord$Longitude,
-       col = "black",
-       pch = 16,
-       cex = 1.5)
-text(98.4, 19.2, "SCC", cex=0.9, pos=4,
-     col="black", font=2)
-text(98.29, 19.56, "TL", cex=0.9, pos=4,
-     col="black", font=2)
-text(98.15, 19.45, "BR", cex=0.9, pos=4,
-     col="black", font=2)
-text(98.2, 19.65, "BVC", cex=0.9, pos=4,
-     col="black", font=2)
-text(97.9, 19.59, "SC", cex=0.9, pos=4,
-     col="black", font=2)

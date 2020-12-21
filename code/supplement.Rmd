@@ -1,0 +1,159 @@
+---
+title: "Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand'"
+author:
+  - Cyler Norman Conrad (cylerc@lanl.gov) 
+  - Ben Marwick (bmarwick@uw.edu)
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    bookdown::html_document2
+---
+
+This document combines our R scripts to reproduce the radiocarbon analysis described in:
+
+Conrad, C., Marwick, B., Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, Banyan Valley Cave and Non Nok Tha in Northern Thailand. Antiquity.
+
+The authors of this repository are Cyler Norman Conrad (cylerc@lanl.gov) and Ben Marwick (bmarwick@uw.edu). Details of the computational environment and software dependencies are listed at the end of this document. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      cache= TRUE)
+```
+
+```{r load_libraries, message = FALSE, warning = FALSE, include = FALSE}
+# see the output of sessionInfo() at the bottom for package version numbers
+library(devtools)
+library(Bchron)
+library(here)
+
+# function to make everything run without unwanted output
+quietly <- function(x) {	
+  sink(tempfile())	
+  on.exit(sink())	
+  invisible(force(suppressMessages(x)))	
+}	
+```
+
+
+```{r map, fig.cap="Map of sites mentioned in the text.",  cache.extra=tools::md5sum(here::here("code/001-map.R"))}
+quietly(source(here::here("code/001-map.R")))
+knitr::include_graphics(here::here("figures/001-map.png"))
+```
+
+
+```{r c14-spirit-cave, fig.cap="Calibrated radiocarbon age distributions from Spirit Cave",  cache.extra=tools::md5sum(here::here("code/002-c14-dist-spirit-cave.R"))}
+quietly(source(here::here("code/002-c14-dist-spirit-cave.R")))
+knitr::include_graphics(here::here("figures/002-c14-ages-spirit-cave.png"))
+```
+
+
+```{r c14-steep-clff-cave, fig.cap="Calibrated radiocarbon age distributions from Steep Cliff Cave.",  cache.extra=tools::md5sum(here::here("code/003-c14-dist-steep-cliff-cave.R"))}
+quietly(source(here::here("code/003-c14-dist-steep-cliff-cave.R")))
+knitr::include_graphics(here::here("figures/003-c14-ages-steep-cliff-cave.png"))
+```
+
+
+```{r c14-banyan-valley-rice, fig.cap="Calibrated radiocarbon age distributions from Banyan Valley Cave - only the rice",  cache.extra=tools::md5sum(here::here("code/004-c14-dist-banyan-valley-rice.R"))}
+quietly(source(here::here("code/004-c14-dist-banyan-valley-rice.R")))
+knitr::include_graphics(here::here("figures/004-c14-ages-banyan-valley-rice.png"))
+```
+
+
+```{r c14-banyan-valley-no-rice, fig.cap="Calibrated radiocarbon age distributions from Banyan Valley Cave - excluding the rice",  cache.extra=tools::md5sum(here::here("code/005-c14-dist-banyan-valley-cave.R"))}
+quietly(source(here::here("code/005-c14-dist-banyan-valley-cave.R")))
+knitr::include_graphics(here::here("figures/005-c14-ages-banyan-valley-cave.png"))
+```
+
+
+```{r c14-non-nok-tha-mound, fig.cap="Calibrated radiocarbon age distributions from Non Nok Tha (mound)",  cache.extra=tools::md5sum(here::here("code/006-c14-dist-non-nok-tha-mound.R"))}
+quietly(source(here::here("code/006-c14-dist-non-nok-tha-mound.R")))
+knitr::include_graphics(here::here("figures/006-c14-ages-non-nok-tha-mound.png"))
+```
+
+
+```{r c14-non-nok-tha-test, fig.cap="Calibrated radiocarbon age distributions from Non Nok Tha (mound)", cache.extra=tools::md5sum(here::here("code/007-c14-dist-non-nok-tha-test.R"))}
+quietly(source(here::here("code/007-c14-dist-non-nok-tha-test.R")))
+knitr::include_graphics(here::here("figures/007-c14-ages-non-nok-tha-test.png"))
+```
+
+
+
+```{r radiocarbon offset}
+#quatify offset in radiocarbon ages
+# spirit cave
+# WK-40766 to BM-501
+a<-9106-7907
+# WK-40766 to GaK-1846
+b<-9106-8547
+# WK-40766 to FSU-314
+c<-9106-7902
+# WK-40766 to FSU-317
+d<-9106-7397
+
+# Wk-40768 to FSU-318
+e<-8965-8517
+# Wk-40768 to TF-802
+f<-8965-8265
+
+sc_sum<-c(a,b,c,d,e,f)
+
+sc_offset<-mean(sc_sum)
+
+# steep cliff cave
+# UGAMS-29448 to UGAMS-29452
+aa<-9800-8180
+# UGAMS-29448 to UGAMS-29451
+bb<-9800-7460
+# UGAMS-29448 to UGAMS-29455
+cc<-9800-8300
+
+# UGAMS-29449 to UGAMS-29453
+dd<-10510-8100
+# UGAMS-29449 to UGAMS-29447
+ee<-10510-9140
+# UGAMS-29449 to UGAMS-29456
+ff<-10510-9960
+
+# UGAMS-29450 to UGAMS-29454
+gg<-11160-9020
+
+
+scc_sum<-c(aa,bb,cc,dd,ee,ff,gg)
+scc_offset<-mean(scc_sum)
+
+# banyan valley cave
+# UGAMS-29440 to UGAMS-29443
+aaa<-7300-2850
+# UGAMS-29440 to UGAMS-29437
+bbb<-7300-3970
+
+# UGAMS-29441 to UGAMS-29445
+ccc<-7540-5900
+# UGAMS-29441 to UGAMS-29444
+ddd<-7540-6180
+# UGAMS-29441 to UGAMS-29438
+eee<-7540-4060
+
+# UGAMS-29442 to UGAMS-29446
+fff<-10680-9270
+
+bvc_sum<-c(aaa,bbb,ccc,ddd,eee,fff)
+
+bvc_offset<-mean(bvc_sum)
+```
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies:
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+# what commit is this file at?
+git2r::repository(here::here())
+```

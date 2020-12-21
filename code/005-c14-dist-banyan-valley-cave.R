@@ -43,10 +43,14 @@ my_dates_tbl_c14list_calibrated_cal_dens_bvc %>%
   scale_x_reverse() +
   xlab("Calibrated date (cal BP)") +
   ylab("") +
-  theme_bw(base_size = 10) +
+  theme_bw(base_size = 6) +
   theme(strip.text.x = element_blank(),
         strip.background = element_rect(colour="white", fill="white"),
-        legend.position=c(.85,.2)
+        legend.position=c(.95,.15),
+        legend.title = element_text(size = 4), 
+        legend.text  = element_text(size = 4),
+        legend.key.width = unit(0.25, 'cm'),
+        legend.key.size = unit(0.25, "cm")
   ) +
   # layer 1 rect
   geom_rect(data = data.frame(x = 1),
@@ -94,7 +98,7 @@ my_dates_tbl_c14list_calibrated_cal_dens_bvc %>%
 
 ggsave(here::here("figures/005-c14-ages-banyan-valley-cave.png"),
        width = 13.5,
-       height = 10,
+       height = 6,
        units = "cm")
 
 
