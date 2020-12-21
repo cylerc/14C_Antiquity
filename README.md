@@ -6,7 +6,6 @@
 Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cylerc/14C_Antiquity/master?urlpath=rstudio)
 [![Actions Status](https://github.com/cylerc/14C_Antiquity/workflows/Render%20manuscript%20on%20Docker/badge.svg)](https://github.com/cylerc/14C_Antiquity/actions)
 
-[![R build status](https://github.com/cylerc/14C_Antiquity/workflows/R-CMD-check/badge.svg)](https://github.com/cylerc/14C_Antiquity/actions)
 <!-- badges: end -->
 
 This repository contains the data and code for our paper:
