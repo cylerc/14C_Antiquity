@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: |-
-          Rscript -e "remotes::install_deps(dependencies = TRUE)"
+          Rscript -e "install.packages("remotes"); remotes::install_deps(dependencies = TRUE)"
       - name: Render mansucript
         run: |-
           Rscript -e "lapply(fs::dir_ls('supplement', glob='*.Rmd', recurse=TRUE), rmarkdown::render, envir = globalenv())"
