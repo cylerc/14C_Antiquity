@@ -1,4 +1,4 @@
-# Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand'
+# Supplementary materials for the paper 'Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand'
 
 <!-- badges: start -->
 
@@ -10,13 +10,13 @@ Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cylerc/14C_An
 
 This repository contains the data and code for our paper:
 
-> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), Higham, C., Castillo, C., Fuller, D., White, J.C., Shoocongdej, R., Thongcharoenchaikit, C., Green, E. and Yen, D.  submitted. Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand. Submitted to *Antiquity*.
+> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Shoocongdej, R., Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. submitted. Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand. Submitted to *Antiquity*.
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Conrad, C., Marwick, B. 2020. Supplementary materials for the paper 'Reanalysis of the Radiocarbon and Thermoluminescence Chronologies for Spirit Cave, Steep Cliff Cave, and Banyan Valley Cave in Northern Thailand' <https://doi.org/xxx/xxx> <!-- get DOI from osf.io -->
+> Conrad, C., Shoocongdej, R., Marwick, B., White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. 2020. Compendium for the paper Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand' <https://osf.io/j3z6f/?view_only=b85b5bceea514a8590203060716424b9> <!-- get DOI from osf.io -->
 
 ## Contents
 
@@ -71,4 +71,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Contact:
 
-Cyler Norman Conrad, Ph.D., RPA, Archaeologist, Los Alamos National Laboratory, t. (+1) 505.667.0295 e. cylerc@lanl.gov
+Ben Marwick, Ph.D., Associate Professor, University of Washington, e. bmarwick@uw.edu
+Cyler Norman Conrad, Ph.D., Adjunct Assistant Professor, University of New Mexico, e. cylerc@unm.edu
