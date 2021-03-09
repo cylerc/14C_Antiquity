@@ -93,16 +93,32 @@ ggmap(map)  +
 # DEM source ("E47"): http://viewfinderpanoramas.org/Coverage%20map%20viewfinderpanoramas_org3.htm
 # unzip and att "E47" folder to /data before proceeding
 
-sites_coord <- readxl::read_excel(here("data/Sites.xlsx"))
+sites_coord <- readxl::read_excel(here("data/Sites.xlsx")) %>% 
+  filter(!Site %in% c("Huai Hin", "Xiaodong"))
+
+ggplot(sites_coord) +
+  aes(Longitude,
+      Latitude,
+      label = Site) +
+  geom_point() +
+  geom_text()
 
 unproj <- CRS("+proj=longlat +datum=WGS84")
-files <- list.files(here("data/E47"), recursive=TRUE, full.names = TRUE)
-rasters.list <- sapply(files, raster)
+files <- list.files(here("data/raster/E47"), recursive=TRUE, full.names = TRUE)
+rasters.list <- sapply(files, raster::raster)
 names(rasters.list) <- NULL
 rasters.list$fun <- mean
-mosaic <- do.call(mosaic, rasters.list)
+mosaic <- do.call(raster::mosaic, rasters.list)
+
+# get minimum bounding box for the sites
+
+lx = min(sites_coord$Longitude) - 0.2
+ux = max(sites_coord$Longitude) + 0.2
+ly = min(sites_coord$Latitude)  - 0.2
+uy = max(sites_coord$Latitude)  + 0.2
+
 # crop mosaic to inset area here to save time on later processing
-mosaic_crop <- crop(mosaic,  extent(97.5, 99, 18.5, 20))
+mosaic_crop <- crop(mosaic,  extent(lx, ux, ly, uy))
 mosaic_crop_10 <- mosaic_crop * 10
 slope <- terrain(mosaic_crop_10, opt="slope", unit='radians')
 aspect <- terrain(mosaic_crop_10, opt="aspect", unit='radians')
@@ -136,9 +152,11 @@ ggplot() +
              aes(y = Latitude,
                  x = Longitude,
                  label = Site),
-             colour = "white",
-             size = 1.75,
-             bg.colour = "black") +
+             colour = "black",
+             size = 2.0,
+             min.segment.length = 0.1,
+             bg.colour = "white",
+             bg.r = 0.2) +
   scale_fill_viridis_c() +
   coord_equal() +
   theme_minimal(base_size = 4) +
