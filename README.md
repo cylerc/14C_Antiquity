@@ -1,4 +1,4 @@
-# Supplementary materials for the paper 'Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand'
+# Supplementary materials for the paper 'Re-evaluating Pleistocene–Holocene occupation of cave sites in north-west Thailand: new radiocarbon and luminescence dating'
 
 <!-- badges: start -->
 
@@ -10,13 +10,13 @@ Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cylerc/14C_An
 
 This repository contains the data and code for our paper:
 
-> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Shoocongdej, R., Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. submitted. Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand. Submitted to *Antiquity*.
+> Conrad, C.[![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-4659-2884), Shoocongdej, R., Marwick, B. [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7879-4531), White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. in press. Re-evaluating Pleistocene–Holocene occupation of cave sites in north-west Thailand: new radiocarbon and luminescence dating. *Antiquity*.
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Conrad, C., Shoocongdej, R., Marwick, B., White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. 2020. Compendium for the paper Radiocarbon and Luminescence Dating of Spirit Cave, Steep Cliff Cave and Banyan Valley Cave in Northwest Thailand' <https://osf.io/j3z6f/?view_only=b85b5bceea514a8590203060716424b9> <!-- get DOI from osf.io -->
+> Conrad, C., Shoocongdej, R., Marwick, B., White, J.C., Thongcharoenchaikit, C., Higham, C., Feathers, J..K., Tumpeesuwan, S., Castillo, C.C., Fuller, D.Q. and Jones, E.L. 2020. Compendium for the paper Re-evaluating Pleistocene–Holocene occupation of cave sites in north-west Thailand: new radiocarbon and luminescence dating <https://osf.io/j3z6f/?view_only=b85b5bceea514a8590203060716424b9> <!-- get DOI from osf.io -->
 
 ## Contents
 
@@ -29,6 +29,7 @@ The main contents are:
   - [:file\_folder: data](/data): Data used in the analysis.  
   - [:file\_folder: figures](/figures): Plots and other
     illustrations
+  - [:file\_folder: supplemental](/supplemental): A document which includes supplemental site photographs/drawings, and original radiocarbon and luminescence dating     results sheets/methods   
 
 ## How to run in your broswer or download and run locally
 
