@@ -6,7 +6,10 @@ RUN chown -R ${NB_USER} ${HOME}
 USER ${NB_USER}
 
 # run our compendium
-RUN wget https://github.com/cylerc/14C_Antiquity/raw/master/DESCRIPTION && & R -e "options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/2021-06-26/')); devtools::install_deps()"
+RUN wget https://github.com/cylerc/14C_Antiquity/raw/master/DESCRIPTION && R --vanilla -s -e "options(repos = list(CRAN = 'http://cran.rstudio.com'));  install.packages('renv'); renv::restore()"
 
 RUN rm DESCRIPTION.1; exit 0
+
+
+
 
