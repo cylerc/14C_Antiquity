@@ -29,10 +29,10 @@ Imports:
     ggthemes ,
     here,
     knitr,
-    legendMa,
-    raster (,
+    legendMap,
+    raster,
     readxl ,
     remotes ,
     tidyr ,
     tidyverse ,
-    tools 
+    maptools 
